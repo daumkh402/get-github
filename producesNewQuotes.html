@@ -1,0 +1,133 @@
+
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- let's get started -->
+<title>Random Quote</title>
+
+<!-- //******CSS********************// -->
+<style>
+ #mainContainer{
+ 	background-color:white;
+ 	margin-top:10%;
+ }
+ #textContainer{
+    background-color:white;
+    width:800px;
+    height:200px;
+    border:none;
+    
+}
+#buttonsContainer{
+	background-color:white;
+	
+	text-align:center;
+	width:800px;
+    height:0%;
+    border:none;
+
+    
+}
+
+
+#quoteButton{
+	background-color:#4CAF50;
+	font-size:20px;
+	
+}
+#twittButton{
+	font-size:20px;
+	
+}
+
+#showQuote{
+	font-size:30px;
+}
+
+</style>
+
+
+
+
+<!-- //******JavaScript************// -->
+<script type="text/javascript">
+function randColor() {
+    var letters = '0123456789ABCDEF'.split('');
+    var color = '#';
+    for (var i = 0; i < 6; i++ ) {color += letters[Math.round(Math.random() * 15)];
+    }
+    if(color=="#000000"){ // to exclude white from brower background color since the color of the 'Container' is always white    
+    color[2]=color[2]+1;
+    document.body.style.backgroundColor = color;}   
+    else
+    document.body.style.backgroundColor = color;  	
+}
+
+var quote=[
+    "You can do anything, but not everything. —David Allen",
+    "Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away.—Antoine de Saint-Exupéry",
+    "The richest man is not he who has the most,but he who needs the least. —Unknown Author",
+    "You miss 100 percent of the shots you never take. —Wayne Gretzky",
+    "You must be the change you wish to see in the world. —Gandhi",
+    "We are what we repeatedly do. excellence, then, is not an act but a habit.—Aristotle",
+    "A wise man gets more use from his enemies than a fool from his friends.—Baltasar Gracian", 
+    "What we think, or what we know, or what we believe is, in the end, of little consequence. The only consequence is what we do.—John Ruskin",
+    "The real voyage of discovery consists not in seeking new lands but seeing with new eyes.—Marcel Proust",
+    "Don\’t ever wrestle with a pig. You’ll both get dirty, but the pig will enjoy it.—Cale Yarborough"
+    ];
+
+function randQuote(){
+    randNum= Math.floor(Math.random()*10) ;
+    document.getElementById("showQuote").innerHTML=quote[randNum];	
+} 
+
+function Target(){
+var Target="https://twitter.com/intent/tweet/?text=" + quote[randNum];
+document.getElementById("quoteCopy").href=Target;
+}
+
+
+
+
+</script>
+
+
+</head>
+
+<!-- //******HTML******************// -->
+<body onload="randQuote();randColor();">
+
+<div id="mainContainer" class="container well">
+<div id="textContainer" class="container well">
+	
+		
+     <div id="showQuote">
+
+     </div>	
+</div> 
+
+<div id="buttonsContainer" class="container well">     
+      <button id="quoteButton" class="btn btn-primary" onclick="randQuote(); randColor()">New Quote</button>
+      <a id="quoteCopy" class="twitter-share-button"  data-size="large"><button id="twittButton" type="button" onclick="Target()" class="btn btn-primary">Twitt</button></a>
+</div>  
+
+</div>        
+
+
+</body>
+
+
+
+
+</html>
+
+
+
+
+
+
+
